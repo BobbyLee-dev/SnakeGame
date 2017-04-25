@@ -59,6 +59,7 @@ function touchStarted() {
   
 }
 
+//testing
 function touchEnded() {
     if (s.y > food.y) {
         s.dir(0, -1);

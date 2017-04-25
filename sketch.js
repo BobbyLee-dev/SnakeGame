@@ -6,7 +6,8 @@ var food;
 var leftBtn;
 
 function setup() {
-    createCanvas(displayWidth, 600)
+    //testing mobile display.
+    createCanvas(displayWidth, displayHeight);
     
     s = new Snake();
     frameRate(10);

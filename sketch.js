@@ -3,18 +3,14 @@ var scl = 20;
 
 var food;
 
+var leftBtn;
+
 function setup() {
-    createCanvas(600, 600)
+    createCanvas(displayWidth, 600)
+    
     s = new Snake();
     frameRate(10);
     pickLocation();
-}
-
-function pickLocation() {
-    var cols = floor(width/scl);
-    var rows = floor(height/scl);
-    food = createVector(floor(random(cols)), (floor(random(rows))));
-    food.mult(scl);
 }
 
 function draw() {
@@ -27,10 +23,19 @@ function draw() {
     s.update();
     s.show();
     
-    
-    
     fill(255, 0, 100);
     rect(food.x, food.y, scl, scl)
+    
+    triangle(30, 75, 58, 20, 86, 75);
+}
+
+function pickLocation() {
+    var cols = floor(width/scl);
+    var rows = floor(height/scl);
+    food = createVector(floor(random(cols)), (floor(random(rows))));
+    food.mult(scl);
+    
+    
 }
 
 function keyPressed() {
@@ -45,3 +50,20 @@ function keyPressed() {
     }
 }
 
+function touchStarted() {
+    if (s.x > food.x) {
+        s.dir(-1, 0);
+    } else if (s.x < food.x) {
+        s.dir(1, 0);
+    }
+  
+}
+
+function touchEnded() {
+    if (s.y > food.y) {
+        s.dir(0, -1);
+    } else if (s.y < food.y) {
+        s.dir(0, 1);
+    }
+  
+}

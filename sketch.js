@@ -7,8 +7,8 @@ var leftBtn;
 
 function setup() {
     //testing mobile display.
-    createCanvas(displayWidth, displayHeight);
-    
+    createCanvas(600, 600);
+
     s = new Snake();
     frameRate(10);
     pickLocation();
@@ -16,18 +16,17 @@ function setup() {
 
 function draw() {
     background(51);
-    
+
     if (s.eat(food)) {
         pickLocation();
     }
     s.death();
     s.update();
     s.show();
-    
+
     fill(255, 0, 100);
     rect(food.x, food.y, scl, scl)
-    
-    triangle(30, 75, 58, 20, 86, 75);
+
 }
 
 function pickLocation() {
@@ -35,8 +34,8 @@ function pickLocation() {
     var rows = floor(height/scl);
     food = createVector(floor(random(cols)), (floor(random(rows))));
     food.mult(scl);
-    
-    
+
+
 }
 
 function keyPressed() {
@@ -57,7 +56,7 @@ function touchStarted() {
     } else if (s.x < food.x) {
         s.dir(1, 0);
     }
-  
+
 }
 
 //testing
@@ -67,5 +66,5 @@ function touchEnded() {
     } else if (s.y < food.y) {
         s.dir(0, 1);
     }
-  
+
 }

@@ -24,7 +24,7 @@ function draw() {
     s.update();
     s.show();
 
-    fill(255, 0, 100);
+    fill(255, 40, 100);
     rect(food.x, food.y, scl, scl)
 
 }
